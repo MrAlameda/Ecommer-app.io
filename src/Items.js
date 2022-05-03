@@ -1,7 +1,7 @@
-fetch("/Products.json")
+fetch("./Products.json")
     .then(resp=>resp.json())
     .then(datas=>{
-        console.log(datas)
+        return datas 
     })
 
 function Items(){
@@ -9,7 +9,7 @@ function Items(){
         <section>
             <div className="Container-Card">
                 <div className="titleProduct">
-
+                    hola
                 </div> 
             </div>
         </section>
