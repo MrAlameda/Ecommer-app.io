@@ -1,12 +1,15 @@
-
-let saludo="hola"
+fetch("/Products.json")
+    .then(resp=>resp.json())
+    .then(datas=>{
+        console.log(datas)
+    })
 
 function Items(){
     return(
         <section>
-            <div Class="Container-Card">
-                <div Class="titleProduct">
-                    `${saludo}`
+            <div className="Container-Card">
+                <div className="titleProduct">
+
                 </div> 
             </div>
         </section>
