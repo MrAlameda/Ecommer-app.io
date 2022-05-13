@@ -1,18 +1,26 @@
-fetch("./Products.json")
-    .then(resp=>resp.json())
-    .then(datas=>{
-        return datas 
-    })
-
 function Items(){
+    let Url="../db/Products.json"
+    let hola=(url)=>{
+        fetch (url, {
+            method: 'POST'
+          })
+          .then(res => res.json())
+          .then(res => {
+            if (res.success) {
+              //mensaje correcto
+            }else{
+            //mensaje de error
+            }
+          })
+          .catch(function() {
+            alert("Can't connect to backend try latter");
+          });
+        }
+    hola(Url)
     return(
-        <section>
-            <div className="Container-Card">
-                <div className="titleProduct">
-                    hola
-                </div> 
-            </div>
-        </section>
+        <div>
+            <h1>hola</h1>
+        </div>
     )
 }
 
