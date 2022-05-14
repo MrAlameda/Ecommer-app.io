@@ -1,12 +1,14 @@
+let Sodas=({sodas=[],quiero})=>{
+    const Quiero=(a,b)=>{
+        quiero(a,b);
+    }
 
-function PizzasCards({pizzas=[]}){
-  
-  return(
+    return(
         <div
-          className="menuItemsPizzas"
+          className="menuItemsSodas"
         >
           {
-            pizzas.map((item,index)=>(
+            sodas.map((item,index)=>(
               <div
                   className="item"
                   key={index}
@@ -16,16 +18,15 @@ function PizzasCards({pizzas=[]}){
 
                   <div className="sizePrices">
                     
-                      <p>tamaño {item.size} : precio {item.precio}</p>
+                      <p>Precio: ${item.precio}</p>
                     
                   </div>
-                  <button className="btn" onClick={()=>{alert(`${item.name}`)}}>Agregar</button>
+                    <button className="btn" onClick={Quiero(item.name,item.precio)}>Agregar</button>
               </div>
           ))
           }
-
         </div>
     )
 }
 
-export { PizzasCards }
+export { Sodas }

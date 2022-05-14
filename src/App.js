@@ -3,6 +3,8 @@ import { Footer } from "./components/Footer"
 import { Header } from "./components/Header";
 
 import "./styles/mobile.css"
+import "./styles/index.css"
+
 
 function App() {
   return (

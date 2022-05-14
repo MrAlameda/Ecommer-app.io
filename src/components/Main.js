@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 
 import { PizzasCards } from "./PizzasCard"
 import { ComplementCards } from "./ComplementsCard"
+import { Sodas } from "./SodasCard"
+import { Ordenar } from "./Ordenar"
 
 //=======LISTA DE PRODUCTOS===================
 
@@ -69,10 +71,6 @@ let comidas={
 
 //============================================
 
-// ==========PEDIDOS==========================
-
-let orden=[];
-
 // ===========================================
 
 
@@ -99,7 +97,7 @@ function Main(){
       pizzas(comidas)
     },[])
 
-// menu de pizzas =========================
+// ===================++===================
 
 // menu de complementos ===================
 
@@ -114,22 +112,75 @@ function Main(){
     complement(comidas)
   },[])
 
+// ===================++===================
 
-// menu de complementos ===================
+// menu de Sodas ==========================
+
+
+let [soda,setSoda]=useState([])
+
+let sodas=async(a)=>{
+  let i=await a.sodas
+  setSoda(i)
+}
+
+useEffect(()=>{
+  sodas(comidas)
+},[])
+
+// ===================++===================
+
+// orden ==================================
+let newOrden =[]
+
+let adOrden=(nameProduct,priceProduct)=>{
+  let i={
+    "name":nameProduct,
+    "price":priceProduct
+  }
+  newOrden.push(i)
+  console.log(newOrden)
+}
+
+let [pedir, setPedir] = useState([])
+
+let pedidos=async(a)=>{
+  let i=await a
+  setPedir(i)
+}
+
+useEffect(()=>{
+  pedidos(newOrden)
+},[])
+
+
+// ===================++===================
+
+
     return(
         <section className="main">
-            <section className="menu">
+            <section className="pizzas">
                 <PizzasCards
                   pizzas={pizza}
+                  quiero={adOrden}
                 />
             </section>
-            <section >
+            <section className="complementos">
                 <ComplementCards
                   complements={comple}
+                  quiero={adOrden}
+                />
+            </section>
+            <section className="sodas">
+                <Sodas 
+                sodas={soda}
+                quiero={adOrden}
                 />
             </section>
             <section className="filterPlace">
-                <Filter/>
+                <Ordenar
+                   pedidos={pedir}
+                />
             </section>
         </section>
     )
