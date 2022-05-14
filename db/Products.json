@@ -1,16 +1,22 @@
 {
-    "pizzas":{
-        "clasica":{
-            "masa":"clasic",
-            "queso":"mozarrella",
-            "ingredients":{
+    "pizzas":
+        {
+            "name":"clasica",
+            "ingredientes":{   
                 "first":"pepperoni"
             },
-            "precio":7
+            "":""
+        },
+        {
+            "name":"mexicana",
+            "ingredientes":{
+                "first":"chorizo",
+                "second":"frijoles",
+                "third":"jalapeño",
+                "fourth":"pimiento"
+            }
         },
         "mexicana":{
-            "masa":"clasic",
-            "queso":"mozarrella",
             "ingredients":{
                 "first":"chorizo",
                 "second":"frijoles",
@@ -20,8 +26,6 @@
             "precio":9
         },
         "hawaiana":{
-            "masa":"clasic",
-            "queso":"mozarrella",
             "ingredients":{
                 "first":"piña",
                 "second":"jamon"

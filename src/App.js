@@ -1,9 +1,15 @@
-import { Items } from "./Items";
+import { Main } from "./components/Main"
+import { Footer } from "./components/Footer"
+import { Header } from "./components/Header";
+
+import "./styles/mobile.css"
 
 function App() {
   return (
     <div className="App">
-      <Items/>
+      <Header/>
+      <Main/>
+      <Footer/>
     </div>
   );
 }
