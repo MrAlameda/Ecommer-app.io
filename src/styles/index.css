@@ -8,16 +8,17 @@ body{
     background-color: #373737;
 }
 
-.menuItemsPizzas{
+.pizzasPlace{
     display: flex;
     flex-wrap: wrap;
 }
 
-.menuItemsSodas{
+.complementsPlace{
     display: flex;
     flex-wrap: wrap;
+}
 
-}.menuItemsComplements{
+.sodasPlace{
     display: flex;
     flex-wrap: wrap;
 }
@@ -25,10 +26,12 @@ body{
 .item{
     margin: 1rem;
     padding: 1rem;
-    max-width: 400px;
+    min-width:200px;
+    max-width: 300px;
 
     background-color: rgb(255, 255, 254);
-    
+    color: #373737;
+
     height: 15rem;
 
     text-align: center;

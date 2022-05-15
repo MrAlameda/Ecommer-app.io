@@ -1,186 +1,71 @@
-import { useState, useEffect } from "react"
+import { useReducer } from "react"
 
-import { PizzasCards } from "./PizzasCard"
-import { ComplementCards } from "./ComplementsCard"
-import { Sodas } from "./SodasCard"
-import { Ordenar } from "./Ordenar"
+import { shopInitialState, shopReducers } from "../reducers/shopReducers"
 
-//=======LISTA DE PRODUCTOS===================
-
-let comidas={
-    "pizzas":[
-      {
-        "name":"clasica",
-        "ingredientes":["pepperoni"],
-        "size":"meidana",
-        "precio":"7"
-      },
-      {
-        "name":"mexicana",
-        "ingredientes":["pimiento","jalapeño","frijoles","chorizo","cebolla"],
-        "size":"meidana",
-        "precio":"9"
-      },
-      {
-        "name":"carnes",
-        "ingredientes":["pepperoni"],
-        "size":"meidana",
-        "precio":"8"
-      },{
-        "name":"hawaiana",
-        "ingredientes":["jamon","piña"],
-        "size":"meidana",
-        "precio":"9"
-      }
-    ],
-    "sodas":[
-      {
-        "name":"pepsi",
-        "size":"3L",
-        "precio":"2"
-      },
-      {
-        "name":"Bigcola",
-        "size":"3L",
-        "precio":"2"
-      },
-      {
-        "name":"Fanta",
-        "size":"3L",
-        "precio":"1"
-      },
-    ],
-    "complementos":[
-      {
-        "name":"rollos de canela",
-        "precio":"5"
-      },
-      {
-        "name":"pan de ajo",
-        "precio":"4"
-      },
-    ],
-    "igredientes":[
-        "pepperoni",
-        "frijoles",
-        "jalapeño",
-        "pimiento",
-        "chorizo"
-    ]
-  }
-
-//============================================
-
-// ===========================================
-
-
-function Filter(){
-    return(
-        <div>
-            filter
-        </div>
-    )
-}
+import { Productos } from "./Productos"
+import { Complementos } from "./Complementos"
+import { Sodas } from "./Sodas"
+import { Car } from "./Car"
+import { TYPE } from "../actions/shopActions"
 
 function Main(){
+    const [state,dispatch]=useReducer(shopReducers,shopInitialState)
 
-// menu de pizzas =========================
+    const {pizzas,sodas,complementos,car} = state
 
-    let [ pizza , setPizza ] = useState([])
-
-    let pizzas=async(a)=>{
-        let i=await a.pizzas
-        setPizza(i)
+    const addToCar=(id)=>{
+        console.log(id)
+        // dispatch({type:TYPE.ADD_PRODUCT,payload:id})
     }
 
-    useEffect(()=>{
-      pizzas(comidas)
-    },[])
+    const removeToCar=()=>{
+        
+    }
 
-// ===================++===================
-
-// menu de complementos ===================
-
-    let [comple,setComple]=useState([])
-
-    let complement=async(a)=>{
-      let i=await a.complementos
-      setComple(i)
-  }
-
-  useEffect(()=>{
-    complement(comidas)
-  },[])
-
-// ===================++===================
-
-// menu de Sodas ==========================
-
-
-let [soda,setSoda]=useState([])
-
-let sodas=async(a)=>{
-  let i=await a.sodas
-  setSoda(i)
-}
-
-useEffect(()=>{
-  sodas(comidas)
-},[])
-
-// ===================++===================
-
-// orden ==================================
-let newOrden =[]
-
-let adOrden=(nameProduct,priceProduct)=>{
-  let i={
-    "name":nameProduct,
-    "price":priceProduct
-  }
-  newOrden.push(i)
-  console.log(newOrden)
-}
-
-let [pedir, setPedir] = useState([])
-
-let pedidos=async(a)=>{
-  let i=await a
-  setPedir(i)
-}
-
-useEffect(()=>{
-  pedidos(newOrden)
-},[])
-
-
-// ===================++===================
+    const clearCar=()=>{
+        
+    }
 
 
     return(
         <section className="main">
-            <section className="pizzas">
-                <PizzasCards
-                  pizzas={pizza}
-                  quiero={adOrden}
-                />
+            <section className="pizzasMenu">
+                <div className="pizzasPlace">
+                    {pizzas.map((pizza)=><Productos 
+                    key={pizza.id}
+                    data={pizza}
+                    addToCar={addToCar}/>
+                )}
+                </div>
             </section>
-            <section className="complementos">
-                <ComplementCards
-                  complements={comple}
-                  quiero={adOrden}
-                />
+            <section className="complementsMenu">
+                <div className="complementsPlace">
+                   {complementos.map((complements)=><Complementos 
+                        key={complements.id}
+                        data={complements}
+                        addToCar={addToCar}/>
+                    )}
+                </div>
             </section>
-            <section className="sodas">
-                <Sodas 
-                sodas={soda}
-                quiero={adOrden}
-                />
+            <section className="sodasMenu">
+                <div className="sodasPlace">
+                    {sodas.map((complements)=><Sodas 
+                        key={complements.id}
+                        data={complements}
+                        addToCar={addToCar}/>
+                    )}
+                </div>
             </section>
-            <section className="filterPlace">
-                <Ordenar
-                   pedidos={pedir}
-                />
+            <section className="Carrito">
+                {
+                    <>hola</>||car.map((item,index)=>
+                        <Car 
+                            key={index}
+                            data={item}
+                            removeToCar={removeToCar}
+                        />
+                )}
+                <button onClick={clearCar}>Limpiar Carrito</button>
             </section>
         </section>
     )
