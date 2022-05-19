@@ -114,10 +114,6 @@ const shopReducers=(state,action)=>{
             console.log(true?(sumaTotal):("adios"))
             return true?{...state,orden:sumaTotal}:("Compra algo")
         }
-        // case TYPE.CLEAR_PRODUCTS:{
-          
-        // }
-        //     break
         default :
             return state
             break

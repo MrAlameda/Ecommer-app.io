@@ -1,7 +1,7 @@
 function Header(){
     return(
         <section className="header">
-            <h1>OlympoPizzas</h1>
+            <h1>Olympus-Pizzas</h1>
         </section>
     )
 }

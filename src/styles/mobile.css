@@ -1,5 +1,8 @@
 @media all and (min-width:320px) and (max-width:425px) {
-    .pizzasPlace,.complementsPlace,.sodasPlace{
+    .pizzasPlace,.carPlace{
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
     }
+
 }
