@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Ecommer-app.io/static/css/main.132fba04.css",
+    "main.js": "/Ecommer-app.io/static/js/main.caaf93d4.js",
+    "static/media/mexicana.png": "/Ecommer-app.io/static/media/mexicana.63ceb4052dfcb4184621.png",
+    "static/media/panAjo.png": "/Ecommer-app.io/static/media/panAjo.8bf6cbac05e0b7163db3.png",
+    "static/media/hawaiana.png": "/Ecommer-app.io/static/media/hawaiana.413d89e54d75c6f1f0eb.png",
+    "static/media/carnes.png": "/Ecommer-app.io/static/media/carnes.65b976afa8ac5ad3630f.png",
+    "static/media/pepperoni.png": "/Ecommer-app.io/static/media/pepperoni.7665d2a29625205d929c.png",
+    "static/media/Canelones.png": "/Ecommer-app.io/static/media/Canelones.ac68b225b4ae236205f4.png",
+    "static/media/pepsi.png": "/Ecommer-app.io/static/media/pepsi.e6e897fcaf10a67f0eef.png",
+    "static/media/bigCola.png": "/Ecommer-app.io/static/media/bigCola.a3b0a8c40c63a9dab948.png",
+    "index.html": "/Ecommer-app.io/index.html",
+    "main.132fba04.css.map": "/Ecommer-app.io/static/css/main.132fba04.css.map",
+    "main.caaf93d4.js.map": "/Ecommer-app.io/static/js/main.caaf93d4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.132fba04.css",
+    "static/js/main.caaf93d4.js"
+  ]
+}
